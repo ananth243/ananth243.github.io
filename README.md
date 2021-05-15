@@ -1,1 +1,2 @@
-## [Ananth Raghav](https://ananth243.github.io/index.html) <img src="https://raw.githubusercontent.com/ananth243/ananth243.github.io/main/Pro.jpg" width="200px" height="200px" align="right">
+## [Ananth Raghav](https://ananth243.github.io/index.html)
+![My github stats](https://github-readme-stats.vercel.app/api?username=ananth243)
