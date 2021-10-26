@@ -1,47 +1,70 @@
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=ananth243&label=Profile%20views&color=0e75b6&style=flat" alt="ananth243" /> </p>
+# Getting Started with Create React App
 
-### Hi there 👋
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-- ⚡ I'm currently pursuing an electronics degree from BITS Pilani
-- 🏀 Love playing basketball and tennis
-- 👨‍💻 Passionate web developer whose favourite tech stack is MERN
+## Available Scripts
 
+In the project directory, you can run:
 
+### `yarn start`
 
-## 📈 Facts
-<details>
-  <summary>📊 GitHub Stats</summary>
-  <br/>
-  <a href="https://github.com/anuraghazra/github-readme-stats"><img alt="aribantbansal's Github Stats" src="https://github-readme-stats.vercel.app/api?username=ananth243&show_icons=true&count_private=true&locale=en&layout=compact&theme=prussian" /></a>
-</details>
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-<details> 
-  <summary>💻 Most used languages</summary>
-  <br/>
-  <a href="https://github.com/anuraghazra/github-readme-stats"><img alt="ananth243's Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ananth243&langs_count=10&layout=compact&theme=prussian" /></a>
-  <br/>
-  <b>Note:</b> This chart is only a metric of which languages my public code on GitHub consists of and does not reflect my experience or skill level.
-</details>
-<details>
-  <summary>⚡Activity</summary>
-  <br/>
-  <a href="https://github.com/DenverCoder1/github-readme-streak-stats"><img alt="activity" src="https://github-readme-streak-stats.herokuapp.com/?user=ananth243&theme=red" /></a>
-</details>
-<br />
-### 🛠 Tech Stack
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-<br/>
+### `yarn test`
 
-![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)&nbsp;
-![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)&nbsp;
-![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)&nbsp;
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)&nbsp;
-![image](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)&nbsp;
-![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)&nbsp;
-![Node js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)&nbsp;
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)&nbsp;
-![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)&nbsp;
-![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white)&nbsp;
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `yarn build`
 
-![Activity Graph](https://activity-graph.herokuapp.com/graph?username=ananth243&theme=react-dark)
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `yarn build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
