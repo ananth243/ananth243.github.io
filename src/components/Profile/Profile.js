@@ -3,12 +3,16 @@ import image from "../../assets/img/me.jpg";
 
 function Profile() {
   return (
-    <div className="bg-gray-600 fixed top-0" style={{width:'100vw'}}>
+    <div className="bg-gray-600" style={{ minWidth: "100vw" }}>
       <div className="flex justify-between">
-       <div className="flex">
-       <img src={image} alt="Profile pic" className="mx-2 rounded-full h-28" />
-       </div>
-        <ul className="text-white flex justify-around items-center w-80">
+        <div className="flex">
+          <img
+            src={image}
+            alt="Profile pic"
+            className="mx-2 rounded-full h-28"
+          />
+        </div>
+        <ul className=" flex justify-around items-center mx-6 w-80">
           <li>
             <a href="#about">About</a>
           </li>

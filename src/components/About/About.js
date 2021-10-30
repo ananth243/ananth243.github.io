@@ -3,8 +3,8 @@ import pic from "../../assets/img/campus.jpeg";
 
 function About() {
   return (
-    <div>
-      <div className="mt-28 flex justify-around absolute">
+    <div id="about">
+      <div className="mt-28 text-black flex text-center justify-around absolute top-4 left-8 right-5">
         <p>
           I'm a full stack web developer currently in my sophmore year pursuing
           an Electronics degree in Engineering from BITS Pilani. I'm an avid

@@ -1,4 +1,5 @@
 import About from "./components/About/About";
+import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 // import Landing from "./components/Landing/Landing";
 import Profile from "./components/Profile/Profile";
@@ -11,6 +12,7 @@ function App() {
       <Profile />
       <About />
       <Projects />
+      <Contact />
       <Footer />
     </>
   );
