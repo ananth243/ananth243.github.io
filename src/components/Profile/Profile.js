@@ -1,9 +1,8 @@
 import React from "react";
 import image from "../../assets/img/me.jpg";
-
 function Profile() {
   return (
-    <div className="bg-gray-600" style={{ minWidth: "100vw" }}>
+    <div className="relative bg-gray-600" style={{ minWidth: "100%" }}>
       <div className="flex justify-between">
         <div className="flex">
           <img

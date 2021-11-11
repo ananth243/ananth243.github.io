@@ -1,4 +1,6 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { faGithub as github } from "@fortawesome/free-brands-svg-icons";
 
 function Card(props) {
   return (
@@ -13,6 +15,9 @@ function Card(props) {
           className="box-border text-center hover:bg-blue-400 bg-blue-500  w-16 mb-5 my-3"
         >
           Visit
+        </a>
+        <a target="_blank" rel="noreferrer" href={props.github}>
+          <FontAwesomeIcon color="white" size="3x" icon={github} />
         </a>
       </div>
     </div>
