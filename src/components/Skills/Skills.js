@@ -4,6 +4,11 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import git from "../../assets/img/git.png";
+import nodejs from "../../assets/img/node.png";
+import mongodb from "../../assets/img/mongodb.jpeg";
+import react from "../../assets/img/react.png";
+import sql from "../../assets/img/sql.png";
 
 function Skills() {
   return (
@@ -29,7 +34,7 @@ function Skills() {
                   iconStyle={{ background: "#fff" }}
                 >
                   <h3 className="vertical-timeline-element-title">
-                    Senior Developer
+                    Senior Web Developer
                   </h3>
                   <h4 className="vertical-timeline-element-subtitle">
                     Developer's Society of BITS Goa
@@ -74,17 +79,21 @@ function Skills() {
                     students of 6th class in order to tackling the JNV exam
                   </p>
                 </VerticalTimelineElement>
+                
               </VerticalTimeline>
             </div>
           </div>
           <h4 className="text-xl text white font-mono text-center mt-3">Worked with</h4>
           <div className="flex justify-center mb-7 mt-3">
-          <ul className="flex justify-around" style={{width:"60%"}}>
-            <li>Git</li>
+          <ul className="flex sm:flex-row justify-around flex-col" style={{width:"60%"}}>
+            {/* <li>Git</li>
             <li>Mongodb</li>
             <li>Express</li>
             <li>Node js</li>
-            <li>React</li>
+            <li>React</li> */}
+            {[git, mongodb, react, nodejs, sql].map(img=>(
+              <li className="mx-2"><img src={img} alt="git" className="h-20 w-20"/></li>
+            ))}
           </ul>
           </div>
         </center>
