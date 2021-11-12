@@ -21,7 +21,7 @@ function Contact() {
     e.preventDefault();
     setLoading(true);
     axios
-      .post("http://localhost:8000", {
+      .post("https://ananth243.herokuapp.com", {
         name,
         email,
         message,
