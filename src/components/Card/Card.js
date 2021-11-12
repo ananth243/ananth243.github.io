@@ -4,7 +4,7 @@ import { faGithub as github } from "@fortawesome/free-brands-svg-icons";
 
 function Card(props) {
   return (
-    <div className="mx-3 my-3 flex flex-col min-w-0 break-words bg-clip-border border-2 rounded-xl">
+    <div className="sm:mx-3 my-3 flex flex-col min-w-0 break-words bg-clip-border border-2 rounded-xl">
       <video src={props.video} style={{height:"75%"}} autoPlay muted loop />
       <div className="my-5 flex flex-col items-center">
         <h5>{props.name}</h5>
