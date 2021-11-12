@@ -1,12 +1,13 @@
 import React from "react";
 import Card from "../Card/Card";
-import Quickstart from "../../assets/img/Quickstart.webm";
-import Inventory from "../../assets/img/inventory.mp4";
-import Profstats from "../../assets/img/Profstats.webm";
+import Quickstart from "../../assets/videos/Quickstart.webm";
+import Inventory from "../../assets/videos/inventory.mp4";
+import Profstats from "../../assets/videos/Profstats.webm";
 
 function Projects() {
   return (
     <div id="projects">
+      <p className="text-center text-xl mt-5 font-mono">I'm pursuing a B.E in Electronics and Instrumentation in BITS Goa and currently in my sophomore year. I am proficient in JS, CSS and Python.</p>
       <h5 className="text-center text-xl  font-mono my-5">
         These are my previous projects
       </h5>

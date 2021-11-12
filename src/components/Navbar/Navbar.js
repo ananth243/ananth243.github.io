@@ -1,6 +1,7 @@
 import React from "react";
 import image from "../../assets/img/me.jpg";
-function Profile() {
+
+function Navbar() {
   return (
     <div className="relative bg-gray-600" style={{ minWidth: "100%" }}>
       <div className="flex justify-between">
@@ -13,10 +14,10 @@ function Profile() {
         </div>
         <ul className=" flex justify-around items-center mx-6 w-80">
           <li>
-            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
           </li>
           <li>
-            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
           </li>
           <li>
             <a href="#contact">Contact</a>
@@ -27,4 +28,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Navbar;

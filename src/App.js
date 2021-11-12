@@ -1,17 +1,26 @@
-import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import Landing from "./components/Landing/Landing";
-import Profile from "./components/Profile/Profile";
+import Navbar from "./components/Navbar/Navbar";
 import Projects from "./components/Projects/Projects";
+import {useState} from "react";
+import Skills from "./components/Skills/Skills";
 
 function App() {
+  const [state, setState] = useState(false);
+  setTimeout(() => {
+    setState(true);
+  }, 7500);
   return (
     <>
-      <Landing />
-      <Profile />
-      <About />
-      <Projects />
-      <Contact />
+      {!state && <Landing />}
+      {state && (
+        <>
+        <Navbar />
+          <Projects />
+          <Skills />
+          <Contact />
+        </>
+      )}
     </>
   );
 }

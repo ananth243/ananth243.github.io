@@ -10,7 +10,7 @@ function Footer() {
       </li>
       <li className="mt-4 mb-4">
         <button className="hover:text-white w-28 hover:bg-blue-400">
-          <a href="https://github.com/ananth243">Github</a>
+          <a href="https://github.com/ananth243" target="_blank" rel="noreferrer">Github</a>
         </button>
       </li>
       <li className="mt-4 mb-4">

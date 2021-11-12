@@ -3,10 +3,6 @@ import "./Landing.css";
 import Typewriter from "typewriter-effect";
 
 function Navbar() {
-  setTimeout(() => {
-    document.getElementById("landing").style.height = 0;
-    document.getElementById("landing").style.display = "none";
-  }, 14000);
   return (
     <div
       id="landing"
@@ -15,10 +11,13 @@ function Navbar() {
     >
       <p id="intro" className="text-center text-4xl">
         <Typewriter
+          options={{
+            delay: 50,
+          }}
           onInit={(typewriter) => {
             typewriter
               .typeString(
-                "Hey there. My name is Ananth Raghav and I'm a full stack developer from BITS Goa."
+                "Hey there. I'm Ananth Raghav and I'm a full stack developer from BITS Goa."
               )
               .start();
           }}
