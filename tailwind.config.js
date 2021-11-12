@@ -4,12 +4,12 @@ module.exports = {
   },
   theme: {
     extend: {
-      colors:{
-        'blue-regal':'rgb(33, 150, 243)',
+      colors: {
+        "blue-regal": "rgb(33, 150, 243)",
       },
       gridTemplateColumns: {
-       'auto': 'repeat(auto-fit, minmax(300px, 1fr))',
-      }
+        auto: "repeat(auto-fit, minmax(300px, 1fr))",
+      },
     },
   },
   variants: {},

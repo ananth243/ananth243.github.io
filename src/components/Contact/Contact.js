@@ -15,22 +15,32 @@ function Contact() {
   const [emailError, setEmailError] = React.useState("");
   const [nameError, setNameError] = React.useState("");
   const [messageError, setMessageError] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
 
   function formSubmit(e) {
     e.preventDefault();
+    setLoading(true);
     axios
-      .post("http://localhost:8080", {
+      .post("http://localhost:8000", {
         name,
         email,
         message,
       })
       .then((res) => {
+        setLoading(false);
+        setName("");
+        setEmail("");
+        setMessage("");
+        setEmailError("");
+        setMessageError("");
+        setNameError("");
         setStatus(res.data.status);
         setTimeout(() => {
           setStatus("");
         }, 5000);
       })
       .catch((err) => {
+        setLoading(false);
         const { emailError, messageError, nameError } = err.response.data;
         setEmailError(emailError);
         setMessageError(messageError);
@@ -48,10 +58,10 @@ function Contact() {
           <div className="flex flex-col" style={{ width: "45%" }}>
             <p className="text-center">
               I'm available for any paid oppurtunities and always am open to
-              learn new things and from my mistakes. Here are my socials if you
+              learn new things and improve. Here are my socials if you
               want to reach me from here
             </p>
-            <ul className="flex justify-around my-5 sm:my-40">
+            <ul className="flex justify-around my-5 sm:my-32">
               <li>
                 <a href="https://www.linkedin.com/in/ananth-raghav-2151a9200/">
                   <FontAwesomeIcon color="blue" size="2x" icon={faLinkedin} />
@@ -75,7 +85,10 @@ function Contact() {
               onSubmit={formSubmit}
               className="flex flex-col items-center my-4"
             >
-              <h4 className="bg-blue-regal">{status}</h4>
+              <h4 className="text-blue-regal">{status}</h4>
+              <h4>
+                {loading && <div className="spinner-border"></div>}
+              </h4>
               <div className="my-3 flex ">
                 <label htmlFor="name" className="mr-3">
                   Name
