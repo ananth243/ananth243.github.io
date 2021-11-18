@@ -86,13 +86,8 @@ function Skills() {
           <h4 className="text-xl text white font-mono text-center mt-3">Worked with</h4>
           <div className="flex justify-center mb-7 mt-3">
           <ul className="flex sm:flex-row justify-around flex-col" style={{width:"60%"}}>
-            {/* <li>Git</li>
-            <li>Mongodb</li>
-            <li>Express</li>
-            <li>Node js</li>
-            <li>React</li> */}
             {[git, mongodb, react, nodejs, sql].map(img=>(
-              <li className="mx-2"><img src={img} alt="git" className="h-20 w-20"/></li>
+              <li className="my-4 sm:mx-2"><img src={img} alt="git" className="h-20 w-20"/></li>
             ))}
           </ul>
           </div>

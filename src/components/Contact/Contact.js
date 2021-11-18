@@ -6,6 +6,7 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import axios from "axios";
+import copy from "copy-to-clipboard";
 
 function Contact() {
   const [message, setMessage] = React.useState("");
@@ -16,7 +17,15 @@ function Contact() {
   const [nameError, setNameError] = React.useState("");
   const [messageError, setMessageError] = React.useState("");
   const [loading, setLoading] = React.useState(false);
+  const [copied, setCopied] = React.useState(false);
 
+  function Copied() {
+    copy("raghavananth02@gmail.com");
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+  }
   function formSubmit(e) {
     e.preventDefault();
     setLoading(true);
@@ -58,10 +67,10 @@ function Contact() {
           <div className="flex flex-col" style={{ width: "45%" }}>
             <p className="text-center">
               I'm available for any paid oppurtunities and always am open to
-              learn new things and improve. Here are my socials if you
-              want to reach me from here
+              learn new things and improve. Here are my socials if you want to
+              reach me from here
             </p>
-            <ul className="flex justify-around my-5 sm:my-32">
+            <ul className="flex justify-around my-5 sm:my-8">
               <li>
                 <a href="https://www.linkedin.com/in/ananth-raghav-2151a9200/">
                   <FontAwesomeIcon color="blue" size="2x" icon={faLinkedin} />
@@ -78,6 +87,30 @@ function Contact() {
                 </a>
               </li>
             </ul>
+            <p className="my-5">
+              If you want to schedule an appointment, my{" "}
+              <a
+                target="_blank"
+                className="text-blue-500"
+                rel="noreferrer"
+                href="https://calendar.google.com/calendar/u/0?cid=ZjIwMjAxNzk3QGdvYS5iaXRzLXBpbGFuaS5hYy5pbg"
+              >
+                calendar
+              </a>{" "}
+              is public so you can send an invite to this{" "}
+              <code
+                className="text-md font-sans text-blue-500"
+                onClick={() => Copied()}
+              >
+                email{" "}
+              </code>
+              address
+            </p>
+            {copied && (
+              <span className="text-blue-700 text-md">
+                Email copied to clipboard
+              </span>
+            )}
           </div>
           <div>
             <h1 className="text-center my-2 md:my-0">CONTACT ME</h1>
@@ -86,10 +119,62 @@ function Contact() {
               className="flex flex-col items-center my-4"
             >
               <h4 className="text-blue-regal">{status}</h4>
-              <h4>
-                {loading && <div className="spinner-border"></div>}
-              </h4>
-              <div className="my-3 flex ">
+              <h4>{loading && <div className="spinner-border"></div>}</h4>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Name</td>
+                    <td>
+                      <input
+                        type="text"
+                        className="box-border border-2 "
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>
+                      <span className="text-red-600">{nameError}</span>
+                    </td>
+                  </tr>
+                  <br />
+                  <tr>
+                    <td>Email</td>
+                    <td>
+                      <input
+                        type="text"
+                        className="box-border border-2 "
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>
+                      <span className="text-red-600">{emailError}</span>
+                    </td>
+                  </tr>
+                  <br />
+                  <tr>
+                    <td>Message</td>
+                    <td>
+                      <input
+                        type="text"
+                        className="box-border border-2 "
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>
+                      <span className="text-red-600">{messageError}</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              {/* <div className="my-3 flex ">
                 <label htmlFor="name" className="mr-3">
                   Name
                 </label>{" "}
@@ -112,7 +197,6 @@ function Contact() {
                 />
               </div>
 
-              <span className="text-red-600">{emailError}</span>
               <div className="my-3 flex">
                 <label htmlFor="message" className="mr-2">
                   Message
@@ -123,8 +207,8 @@ function Contact() {
                   onChange={(e) => setMessage(e.target.value)}
                 />
               </div>
+                 */}
 
-              <span className="text-red-600">{messageError}</span>
               <button
                 className="bg-green-500 h-10 hover:bg-green-400 text-white my-5"
                 style={{ width: "40%" }}

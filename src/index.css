@@ -47,3 +47,7 @@
     animation-duration: 1.5s;
   }
 }
+
+code:hover{
+  cursor: pointer;
+}
