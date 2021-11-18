@@ -162,7 +162,7 @@ function Contact() {
                       <input
                         type="text"
                         className="box-border border-2 "
-                        onChange={(e) => setName(e.target.value)}
+                        onChange={(e) => setMessage(e.target.value)}
                       />
                     </td>
                   </tr>
