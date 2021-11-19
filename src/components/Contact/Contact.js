@@ -1,23 +1,25 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { send } from "emailjs-com";
 import {
   faFacebook,
   faInstagram,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
-import axios from "axios";
+import { useForm } from "react-hook-form";
 import copy from "copy-to-clipboard";
 
 function Contact() {
-  const [message, setMessage] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [name, setName] = React.useState("");
   const [status, setStatus] = React.useState("");
-  const [emailError, setEmailError] = React.useState("");
-  const [nameError, setNameError] = React.useState("");
-  const [messageError, setMessageError] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   const [copied, setCopied] = React.useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
   function Copied() {
     copy("raghavananth02@gmail.com");
@@ -26,35 +28,31 @@ function Contact() {
       setCopied(false);
     }, 2000);
   }
-  function formSubmit(e) {
-    e.preventDefault();
+  async function formSubmit(data) {
+    const { name, email, message } = data;
+
     setLoading(true);
-    axios
-      .post("https://ananth243.herokuapp.com", {
+    try {
+      const templateParams = {
         name,
         email,
         message,
-      })
-      .then((res) => {
-        setLoading(false);
-        setName("");
-        setEmail("");
-        setMessage("");
-        setEmailError("");
-        setMessageError("");
-        setNameError("");
-        setStatus(res.data.status);
-        setTimeout(() => {
-          setStatus("");
-        }, 5000);
-      })
-      .catch((err) => {
-        setLoading(false);
-        const { emailError, messageError, nameError } = err.response.data;
-        setEmailError(emailError);
-        setMessageError(messageError);
-        setNameError(nameError);
-      });
+      };
+      await send(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        templateParams,
+        process.env.REACT_APP_USER_ID
+      );
+      setLoading(false);
+      setStatus("Message successfully delivered");
+      setTimeout(() => {
+        setStatus("");
+        }, 2000);
+      reset();
+    } catch (e) {
+      console.log(e);
+    }
   }
   return (
     <>
@@ -115,11 +113,12 @@ function Contact() {
           <div>
             <h1 className="text-center my-2 md:my-0">CONTACT ME</h1>
             <form
-              onSubmit={formSubmit}
+              onSubmit={handleSubmit(formSubmit)}
+              noValidate
               className="flex flex-col items-center my-4"
             >
               <h4 className="text-blue-regal">{status}</h4>
-              <h4>{loading && <div className="spinner-border"></div>}</h4>
+              {loading && <h4 className="my-2"><div className="spinner-border"></div></h4>}
               <table>
                 <tbody>
                   <tr>
@@ -128,14 +127,28 @@ function Contact() {
                       <input
                         type="text"
                         className="box-border border-2 "
-                        onChange={(e) => setName(e.target.value)}
+                        name="name"
+                        {...register("name", {
+                          required: {
+                            value: true,
+                            message: "Please enter your name",
+                          },
+                          maxLength: {
+                            value: 30,
+                            message: "Please use 30 characters or less",
+                          },
+                        })}
                       />
                     </td>
                   </tr>
                   <tr>
                     <td></td>
                     <td>
-                      <span className="text-red-600">{nameError}</span>
+                      {errors.name && (
+                        <span className="text-red-600">
+                          Please fill this field
+                        </span>
+                      )}
                     </td>
                   </tr>
                   <br />
@@ -144,71 +157,52 @@ function Contact() {
                     <td>
                       <input
                         type="text"
+                        name="email"
+                        {...register("email", {
+                          required: true,
+                          pattern:
+                            /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                        })}
                         className="box-border border-2 "
-                        onChange={(e) => setEmail(e.target.value)}
                       />
                     </td>
                   </tr>
                   <tr>
                     <td></td>
                     <td>
-                      <span className="text-red-600">{emailError}</span>
+                      {errors.email && (
+                        <span className="text-red-600">
+                          Please enter a valid email
+                        </span>
+                      )}
                     </td>
                   </tr>
                   <br />
                   <tr>
                     <td>Message</td>
                     <td>
-                      <input
-                        type="text"
+                      <textarea
+                        rows={3}
                         className="box-border border-2 "
-                        onChange={(e) => setMessage(e.target.value)}
+                        name="message"
+                        {...register("message", {
+                          required: true,
+                        })}
                       />
                     </td>
                   </tr>
                   <tr>
                     <td></td>
                     <td>
-                      <span className="text-red-600">{messageError}</span>
+                      {errors.message && (
+                        <span className="text-red-600">
+                          Please enter this field
+                        </span>
+                      )}
                     </td>
                   </tr>
                 </tbody>
               </table>
-              {/* <div className="my-3 flex ">
-                <label htmlFor="name" className="mr-3">
-                  Name
-                </label>{" "}
-                <input
-                  type="text"
-                  className="box-border border-2 "
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </div>
-
-              <span className="text-red-600">{nameError}</span>
-              <div className="my-3 flex">
-                <label htmlFor="email" className="mr-4">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  className="box-border border-2"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-
-              <div className="my-3 flex">
-                <label htmlFor="message" className="mr-2">
-                  Message
-                </label>
-                <input
-                  type="text"
-                  className="box-border border-2"
-                  onChange={(e) => setMessage(e.target.value)}
-                />
-              </div>
-                 */}
-
               <button
                 className="bg-green-500 h-10 hover:bg-green-400 text-white my-5"
                 style={{ width: "40%" }}

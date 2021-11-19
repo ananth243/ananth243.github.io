@@ -41,8 +41,8 @@ function Skills() {
                   </h4>
                   <p>
                     HTTP Requests, Server creation/maintaneince, Database
-                    management (SQL and Mongodb) and web development.
-                    Used mostly MERN stack.
+                    management (SQL and Mongodb) and web development. Used
+                    mostly MERN stack.
                   </p>
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
@@ -79,17 +79,23 @@ function Skills() {
                     students of 6th class in order to tackling the JNV exam
                   </p>
                 </VerticalTimelineElement>
-                
               </VerticalTimeline>
             </div>
           </div>
-          <h4 className="text-xl text white font-mono text-center mt-3">Worked with</h4>
+          <h4 className="text-xl text white font-mono text-center mt-3">
+            Worked with
+          </h4>
           <div className="flex justify-center mb-7 mt-3">
-          <ul className="flex sm:flex-row justify-around flex-col" style={{width:"60%"}}>
-            {[git, mongodb, react, nodejs, sql].map(img=>(
-              <li className="my-4 sm:mx-2"><img src={img} alt="git" className="h-20 w-20"/></li>
-            ))}
-          </ul>
+            <ul
+              className="flex sm:flex-row justify-around flex-col"
+              style={{ width: "60%" }}
+            >
+              {[git, mongodb, react, nodejs, sql].map((img, index) => (
+                <li className="my-4 sm:mx-2" key={index}>
+                  <img src={img} alt="git" className="h-20 w-20" />
+                </li>
+              ))}
+            </ul>
           </div>
         </center>
       </div>
