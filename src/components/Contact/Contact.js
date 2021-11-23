@@ -48,7 +48,7 @@ function Contact() {
       setStatus("Message successfully delivered");
       setTimeout(() => {
         setStatus("");
-        }, 2000);
+      }, 2000);
       reset();
     } catch (e) {
       console.log(e);
@@ -118,7 +118,11 @@ function Contact() {
               className="flex flex-col items-center my-4"
             >
               <h4 className="text-blue-regal">{status}</h4>
-              {loading && <h4 className="my-2"><div className="spinner-border"></div></h4>}
+              {loading && (
+                <h4 className="my-2">
+                  <div className="spinner-border"></div>
+                </h4>
+              )}
               <table>
                 <tbody>
                   <tr>
@@ -183,7 +187,7 @@ function Contact() {
                     <td>
                       <textarea
                         rows={3}
-                        className="box-border border-2 "
+                        className="box-border min-w-full border-2 "
                         name="message"
                         {...register("message", {
                           required: true,

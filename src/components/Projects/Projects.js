@@ -7,7 +7,10 @@ import Profstats from "../../assets/videos/Profstats.webm";
 function Projects() {
   return (
     <div id="projects">
-      <p className="text-center text-xl mt-5 font-mono">I'm pursuing a B.E in Electronics and Instrumentation in BITS Goa and currently in my sophomore year. I am proficient in JS, CSS and Python.</p>
+      <p className="text-center text-xl mt-5 font-mono">
+        I'm pursuing a B.E in Electronics and Instrumentation in BITS Goa and
+        currently in my sophomore year. I am proficient in JS, CSS and Python.
+      </p>
       <h5 className="text-center text-xl  font-mono my-5">
         These are my previous projects
       </h5>
