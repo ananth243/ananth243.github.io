@@ -9,7 +9,8 @@ function Projects() {
     <div id="projects">
       <p className="text-center text-xl mt-5 font-mono">
         I'm pursuing a B.E in Electronics and Instrumentation in BITS Goa and
-        currently in my sophomore year. I am proficient in JS, CSS and Python.
+        currently in my sophomore year. I am proficient in JS, CSS and Python
+        and I'm more inclined towards backend development.
       </p>
       <h5 className="text-center text-xl  font-mono my-5">
         These are my previous projects
