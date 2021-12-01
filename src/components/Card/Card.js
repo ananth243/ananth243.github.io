@@ -18,14 +18,15 @@ function Card(props) {
       />
       <div className="my-5 flex flex-col items-center">
         <h5>{props.name}</h5>
-        <a
+        {props.url && <a
           target="_blank"
           rel="noreferrer"
           href={props.url}
           className="box-border text-center hover:bg-blue-400 bg-blue-500  w-16 mb-5 my-3 rounded-lg"
         >
           Visit
-        </a>
+        </a>}
+        {!props.url && <strong className="mb-5 my-3 rounded-lg">Unavailable</strong>}
         <a target="_blank" rel="noreferrer" href={props.github}>
           <FontAwesomeIcon color="white" size="3x" icon={github} />
         </a>

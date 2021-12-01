@@ -25,7 +25,7 @@ function Projects() {
         <Card
           name={"Inventory"}
           video={Inventory}
-          url="https://bp-gc.in/inventory"
+          // url="https://bp-gc.in/inventory"
           github="https://github.com/ananth243/WebD-Verti-Final"
         />
         <Card
