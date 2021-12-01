@@ -1,6 +1,6 @@
 import React from "react";
 import image from "../../assets/img/me.jpg";
-
+import Resume from "../../assets/Profile.pdf";
 function Navbar() {
   return (
     <div className="relative bg-extra-dark" style={{ minWidth: "100%" }}>
@@ -13,6 +13,9 @@ function Navbar() {
           />
         </div>
         <ul className=" flex justify-around items-center mx-6 w-80">
+          <li>
+            <a download={true} href={Resume}>Resume</a>
+            </li>
           <li>
             <a href="#projects">Projects</a>
           </li>
