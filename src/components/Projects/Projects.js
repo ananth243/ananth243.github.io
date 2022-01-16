@@ -9,11 +9,10 @@ function Projects() {
     <div id="projects">
       <p className="text-center text-xl mt-5 font-mono">
         I'm pursuing a B.E in Electronics and Instrumentation in BITS Goa and
-        currently in my sophomore year. I am proficient in JS, CSS and Python
-        and I'm more inclined towards backend development.
+        currently in my sophmore year.I'm more inclined towards backend development.
       </p>
       <h5 className="text-center text-xl  font-mono my-5">
-        These are my previous projects
+        These are some of my previous projects
       </h5>
       <div className="mx-10 grid grid-cols-auto gap-14">
         <Card
@@ -25,13 +24,11 @@ function Projects() {
         <Card
           name={"Inventory"}
           video={Inventory}
-          // url="https://bp-gc.in/inventory"
           github="https://github.com/ananth243/WebD-Verti-Final"
         />
         <Card
           name={"Profstats"}
           video={Profstats}
-          url="https://bp-gc.in/profstats"
           github="https://github.com/ananth243/profstats"
         />
       </div>
