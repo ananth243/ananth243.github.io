@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../Card/Card";
 import Quickstart from "../../assets/videos/Quickstart.webm";
-import Inventory from "../../assets/videos/inventory.mp4";
+import Backend from "../../assets/videos/backend.webm";
 import Profstats from "../../assets/videos/Profstats.webm";
 
 function Projects() {
@@ -22,9 +22,10 @@ function Projects() {
           url="https://bp-gc.in/quickstart"
         />
         <Card
-          name={"Inventory"}
-          video={Inventory}
-          github="https://github.com/ananth243/WebD-Verti-Final"
+          name={"Backend Practice Questions"}
+          video={Backend}
+          github="https://github.com/ananth243/web-dev-concepts"
+          url="https://backend.ananth243.xyz"
         />
         <Card
           name={"Profstats"}
