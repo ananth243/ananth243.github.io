@@ -1,10 +1,24 @@
-import { Avatar, Center, Text, Stack, Button, Icon } from "@chakra-ui/react";
+import {
+  Avatar,
+  Center,
+  Text,
+  Stack,
+  Button,
+  Icon,
+  Box,
+} from "@chakra-ui/react";
 import photo from "./assets/photo.jpg";
 import { FaLinkedin } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 function Profile() {
   return (
-    <div>
+    <Box
+      as={motion.div}
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      transition={{ duration: 100, ease:"ease-out" }}
+    >
       <Center paddingTop={"10"}>
         <Stack alignItems="center">
           <Avatar name="Ananth Raghav" size="2xl" src={photo} />
@@ -28,13 +42,18 @@ function Profile() {
 
       <Center marginTop="4rem">
         <Button
-          onClick={() => window.open("https://www.linkedin.com/in/ananth-raghav-2151a9200/", "_blank")}
+          onClick={() =>
+            window.open(
+              "https://www.linkedin.com/in/ananth-raghav-2151a9200/",
+              "_blank"
+            )
+          }
           leftIcon={<Icon as={FaLinkedin} />}
         >
           Let's Connect!
         </Button>
       </Center>
-    </div>
+    </Box>
   );
 }
 

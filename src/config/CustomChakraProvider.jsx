@@ -15,13 +15,18 @@ const styles = {
     "html, body": {
       //     color: props.colorMode === "dark" ? "light-white" : "light-white",
       backgroundColor: props.colorMode === "dark" ? "dark" : "light-white",
-    }
+      transitionProperty: "all",
+      transitionDuration: "normal",
+    },
   }),
 };
 
 const theme = extendTheme({
   colors,
   styles,
+  config: {
+    disableTransitionOnChange: false,
+  },
 });
 
 export default function CustomChakraProvider({ children }) {

@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Profile from "./Profile";
 import Navbar from "./components/Navbar";
 import CustomChakraProvider from "./config/CustomChakraProvider";
+import App from "./App";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <CustomChakraProvider>
       <Navbar>
-        <Profile />
+        <App />
       </Navbar>
     </CustomChakraProvider>
   </React.StrictMode>
