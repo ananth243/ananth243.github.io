@@ -16,8 +16,9 @@ function Profile() {
     <Box
       as={motion.div}
       animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       initial={{ opacity: 0 }}
-      transition={{ duration: 100, ease:"ease-out" }}
+      transition={{ duration: 100, ease: "ease-out" }}
     >
       <Center paddingTop={"10"}>
         <Stack alignItems="center">
@@ -36,7 +37,7 @@ function Profile() {
           A software and budding backend developer.
           <br />I specialize in backend development including server side
           <br />
-          experience and user experience.
+          infrastructure and user experience.
         </Text>
       </Center>
 
