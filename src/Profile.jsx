@@ -20,7 +20,7 @@ function Profile() {
       initial={{ opacity: 0 }}
       transition={{ duration: 100, ease: "ease-out" }}
     >
-      <Center paddingTop={"10"}>
+      <Center paddingTop={"20"}>
         <Stack alignItems="center">
           <Avatar name="Ananth Raghav" size="2xl" src={photo} />
           <Text fontSize="xl">Hi I'm Ananth 👋</Text>
