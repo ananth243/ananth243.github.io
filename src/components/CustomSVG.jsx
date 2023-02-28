@@ -18,7 +18,7 @@ function CustomSVG() {
     },
   };
   return (
-    <Box position="absolute" height={"100%"}>
+    <Box position="absolute" left="20%" height={"100%"}>
       <motion.svg
         width="100%"
         height="100%"

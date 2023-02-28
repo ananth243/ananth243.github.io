@@ -8,11 +8,12 @@ import {
 } from "@chakra-ui/react";
 import { ColorMode } from "./ColorMode";
 import { FaEnvelope } from "react-icons/fa";
+import { motion } from "framer-motion";
+import Resume from "../assets/Dev.pdf";
 
 const defaultState = {
   home: false,
   personal: false,
-  contact: false,
   work: false,
 };
 
@@ -31,8 +32,6 @@ function Navbar({ children }) {
         return { ...defaultState, work: true };
       case "personal":
         return { ...defaultState, personal: true };
-      case "contact":
-        return { ...defaultState, contact: true };
       default:
         return defaultState;
     }
@@ -59,6 +58,8 @@ function Navbar({ children }) {
             cursor={"pointer"}
             opacity={state.home ? "1" : "0.7"}
             onClick={() => dispatch("home")}
+            as={motion.li}
+            whileHover={{ scale: 1.2 }}
           >
             Home
           </ListItem>
@@ -66,6 +67,8 @@ function Navbar({ children }) {
             cursor={"pointer"}
             opacity={state.work ? "1" : "0.7"}
             onClick={() => dispatch("work")}
+            as={motion.li}
+            whileHover={{ scale: 1.2 }}
           >
             Work
           </ListItem>
@@ -73,15 +76,19 @@ function Navbar({ children }) {
             cursor={"pointer"}
             opacity={state.personal ? "1" : "0.7"}
             onClick={() => dispatch("personal")}
+            as={motion.li}
+            whileHover={{ scale: 1.2 }}
           >
             Personal
           </ListItem>
           <ListItem
             cursor={"pointer"}
-            opacity={state.contact ? "1" : "0.7"}
-            onClick={() => dispatch("contact")}
+            opacity="0.7"
+            as={motion.li}
+            onClick={() => window.open(Resume, "_blank")}
+            whileHover={{ opacity: 0.9, scale: 1.2 }}
           >
-            Contact
+            Resume
           </ListItem>
         </UnorderedList>
       </HStack>

@@ -19,31 +19,39 @@ function WorkCard({
   return (
     index && (
       <Box
-        as={motion.div}
-        initial={{ x: 0 }}
-        cursor="pointer"
-        onClick={() => window.open(url, "_blank")}
-        boxShadow="rgba(0, 0, 0, 0.15) 1rem 1rem rem 1rem"
-        animate={{ x: index % 2 == 1 ? "-60%" : "50%" }}
-        transitionDuration="150ms"
-        whileHover={{ boxShadow: "2px" }}
-        marginTop="2rem"
-        borderRadius={"xl"}
-        padding="4"
-        width="40%"
-        backgroundColor={bg}
-        color={color}
+        display="flex"
+        justifyContent={index % 2 == 0 ? "flex-end" : "flex-start"}
+        padding='4'
       >
-        <HStack justifyContent="space-between">
-          <Avatar name={company} src={photo} size="xl" />
-          <Text textTransform={"capitalize"} fontWeight='bold' fontSize="xl">
-            {company}
+        <Box
+          as={motion.div}
+          initial={{ x: index % 2 == 0 ? "-50%" : "50%" }}
+          cursor="pointer"
+          onClick={() => window.open(url, "_blank")}
+          transitionDuration="150ms"
+          animate={{  x: index % 2 == 0 ? "-10%" : "10%" }}
+          whileHover={{ boxShadow: "2px" }}
+          marginTop="2rem"
+          borderRadius={"xl"}
+          textOverflow='unset'
+          padding="4"
+          width="46rem"
+          backgroundColor={bg}
+          color={color}
+        >
+          <HStack justifyContent="space-between">
+            <Avatar name={company} src={photo} size="xl" />
+            <Text textTransform={"capitalize"} fontWeight="bold" fontSize="xl">
+              {company}
+            </Text>
+          </HStack>
+          <Text fontSize="xl" marginTop="4">
+            {description}
           </Text>
-        </HStack>
-        <Text fontSize="xl">{description}</Text>
-        <Text marginTop="2" textAlign="end" color={footer}>
-          {format(startDate, "LLLL yyyy")} - {format(endDate, "LLLL yyyy")}
-        </Text>
+          <Text marginTop="2" textAlign="end" color={footer}>
+            {format(startDate, "LLLL yyyy")} - {format(endDate, "LLLL yyyy")}
+          </Text>
+        </Box>
       </Box>
     )
   );

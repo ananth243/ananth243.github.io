@@ -6,12 +6,59 @@ import {
   Button,
   Icon,
   Box,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import photo from "./assets/photo.jpg";
 import { FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
-
+import ProjectCard from "./components/ProjectCard";
+import melange from "./assets/Melange.png";
 function Profile() {
+  const projects = [
+    {
+      name: "Melange",
+      url: null,
+      description: "",
+      company: "DEVSOC BITS Goa",
+      image: melange,
+    },
+    {
+      name: "Melange",
+      url: null,
+      description: "",
+      company: "",
+      image: melange,
+    },
+    {
+      name: "Melange",
+      url: null,
+      description: "",
+      company: "",
+      image: melange,
+    },
+    {
+      name: "Melange",
+      url: null,
+      description: "",
+      company: "",
+      image: melange,
+    },
+    {
+      name: "Cab Joint",
+      url: "https://github.com/ananth243",
+      description: "",
+      company: "",
+      image: melange,
+    },
+    {
+      name: "Code Share",
+      url: "https://github.com/ananth243",
+      description: "",
+      company: "",
+      image: melange,
+    },
+  ];
+
   return (
     <Box
       as={motion.div}
@@ -54,6 +101,13 @@ function Profile() {
           Let's Connect!
         </Button>
       </Center>
+      <Box padding="5rem">
+        <SimpleGrid marginTop="2rem" minChildWidth="20rem" spacing="10rem">
+          {projects.map((project, index) => (
+            <ProjectCard key={index} index={index} {...project} />
+          ))}
+        </SimpleGrid>
+      </Box>
     </Box>
   );
 }

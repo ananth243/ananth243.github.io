@@ -9,9 +9,9 @@ function Personal() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       initial={{ opacity: 0 }}
-      transition={{ duration: 100, ease: "ease-out" }}
+      transition={{ duration: 100 }}
     >
-      Personal
+      Contact Projects Interests in sports, talk about your university
     </Box>
   );
 }
