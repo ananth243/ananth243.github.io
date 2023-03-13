@@ -13,8 +13,7 @@ import Resume from "../assets/Dev.pdf";
 
 const defaultState = {
   home: false,
-  personal: false,
-  work: false,
+  projects: false,
 };
 
 const NavContext = createContext();
@@ -28,10 +27,8 @@ function Navbar({ children }) {
     switch (action) {
       case "home":
         return { ...defaultState, home: true };
-      case "work":
-        return { ...defaultState, work: true };
-      case "personal":
-        return { ...defaultState, personal: true };
+      case "projects":
+        return { ...defaultState, projects: true };
       default:
         return defaultState;
     }
@@ -42,7 +39,7 @@ function Navbar({ children }) {
   });
   return (
     <NavContext.Provider value={state}>
-      <HStack justifyContent="space-around" padding="2.5">
+      <HStack justifyContent="space-around" padding="2.5" position={"fixed"} width="100%">
         <HStack>
           <IconButton as={FaEnvelope} size="sm" />
           <Text>raghavananth02@gmail.com</Text>
@@ -65,27 +62,18 @@ function Navbar({ children }) {
           </ListItem>
           <ListItem
             cursor={"pointer"}
-            opacity={state.work ? "1" : "0.7"}
-            onClick={() => dispatch("work")}
+            opacity={state.projects ? "1" : "0.7"}
+            onClick={() => dispatch("projects")}
             as={motion.li}
             whileHover={{ scale: 1.2 }}
           >
-            Work
-          </ListItem>
-          <ListItem
-            cursor={"pointer"}
-            opacity={state.personal ? "1" : "0.7"}
-            onClick={() => dispatch("personal")}
-            as={motion.li}
-            whileHover={{ scale: 1.2 }}
-          >
-            Personal
+            Projects
           </ListItem>
           <ListItem
             cursor={"pointer"}
             opacity="0.7"
             as={motion.li}
-            onClick={() => window.open(Resume, "_blank")}
+            onClick={() => window.open(Resume, "Download")}
             whileHover={{ opacity: 0.9, scale: 1.2 }}
           >
             Resume

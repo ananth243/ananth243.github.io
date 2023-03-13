@@ -1,7 +1,7 @@
 import { Avatar, Box, color, Heading, HStack, Text } from "@chakra-ui/react";
 import { format } from "date-fns";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import { useColorModeValue } from "@chakra-ui/react";
 
 function WorkCard({
@@ -11,6 +11,7 @@ function WorkCard({
   description,
   startDate,
   endDate,
+  scaleX,
   index,
 }) {
   const bg = useColorModeValue("light.200", "dark.200");
@@ -19,21 +20,21 @@ function WorkCard({
   return (
     index && (
       <Box
+        as={motion.div}
+        position="absolute"
+        right={index % 2 == 0 ? `${scaleX * 100}%` : ""}
         display="flex"
-        justifyContent={index % 2 == 0 ? "flex-end" : "flex-start"}
-        padding='4'
+        padding="4"
       >
         <Box
           as={motion.div}
-          initial={{ x: index % 2 == 0 ? "-50%" : "50%" }}
           cursor="pointer"
           onClick={() => window.open(url, "_blank")}
           transitionDuration="150ms"
-          animate={{  x: index % 2 == 0 ? "-10%" : "10%" }}
           whileHover={{ boxShadow: "2px" }}
           marginTop="2rem"
           borderRadius={"xl"}
-          textOverflow='unset'
+          textOverflow="unset"
           padding="4"
           width="46rem"
           backgroundColor={bg}

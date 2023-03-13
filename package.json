@@ -8,8 +8,8 @@
     "dev": "vite --host --port 3000",
     "build": "vite build --outDir build",
     "preview": "vite preview",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.17",
@@ -21,7 +21,9 @@
     "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.7.1"
+    "react-icons": "^4.7.1",
+    "react-router": "^6.9.0",
+    "react-router-dom": "^6.9.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
