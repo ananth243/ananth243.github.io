@@ -1,14 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import {
-  BrowserRouter,
   createBrowserRouter,
-  Route,
   RouterProvider,
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import CustomChakraProvider from "./config/CustomChakraProvider";
 import App from "./App";
+import './assets/styles/projects.css';
 
 const router = createBrowserRouter([
   {

@@ -21,8 +21,8 @@ function WorkCard({
     index && (
       <Box
         as={motion.div}
-        position="absolute"
-        right={index % 2 == 0 ? `${scaleX * 100}%` : ""}
+        x={scaleX}
+        right={index % 2 == 0 ? "0" : ""}
         display="flex"
         padding="4"
       >

@@ -2,7 +2,7 @@ import Melange from "../assets/img/Melange.png";
 import CabJoint from "../assets/img/CabJoint.png";
 import CodeShare from "../assets/img/CodeShare.png";
 import Devsoc from "../assets/img/devsoc.png";
-import CSA from "../assets/img/csa2.png";
+import CSA from "../assets/img/csa.jpg";
 import IRCS from "../assets/img/ircs.png";
 import Sandbox from "../assets/img/Sandbox.jpg";
 

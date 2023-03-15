@@ -6,6 +6,7 @@ import {
   Button,
   Icon,
   Box,
+  Grid,
 } from "@chakra-ui/react";
 import photo from "./assets/img/photo.jpg";
 import { FaLinkedin } from "react-icons/fa";
@@ -16,10 +17,10 @@ import { useEffect, useRef } from "react";
 
 function Profile() {
   const divRef = useRef();
-  const { scrollYProgess: scaleX } = useScroll({ container: divRef });
+  const props = useScroll({ container: divRef });
   useEffect(() => {
-    console.log(scaleX);
-  }, [scaleX]);
+    console.log(props);
+  }, [props]);
   return (
     <Box>
       <Box
@@ -28,6 +29,7 @@ function Profile() {
         exit={{ opacity: 0 }}
         initial={{ opacity: 0 }}
         height="100vh"
+        scrollSnapAlign="center"
         transition={{ duration: 100, ease: "ease-out" }}
       >
         <Center paddingTop={"20"}>
@@ -64,25 +66,6 @@ function Profile() {
             Let's Connect!
           </Button>
         </Center>
-      </Box>
-      {/*<Box
-      as={motion.div}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      initial={{ opacity: 0 }}
-      transition={{ duration: 100, ease: "ease-out" }}
-      paddingBottom="6"
-    >
-      {experience.map((exp, index) => (
-        <WorkCard {...exp} index={index + 1} key={index} />
-      ))}
-      </Box>*/}
-      <Box ref={divRef}>
-        {experience.map((exp, index) => (
-          <Box position={"relative"} height="sm">
-            <WorkCard {...exp} index={index + 1} scaleX={scaleX} key={index} />
-          </Box>
-        ))}
       </Box>
     </Box>
   );
