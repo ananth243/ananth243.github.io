@@ -3,8 +3,8 @@ import {
   HStack,
   IconButton,
   ListItem,
-  Text,
   UnorderedList,
+  useToast,
 } from "@chakra-ui/react";
 import { ColorMode } from "./ColorMode";
 import { FaEnvelope } from "react-icons/fa";
@@ -23,6 +23,7 @@ export function useNavState() {
 }
 
 function Navbar({ children }) {
+  const toast = useToast();
   function reducer(state, action) {
     switch (action) {
       case "home":
@@ -37,12 +38,31 @@ function Navbar({ children }) {
     ...defaultState,
     home: true,
   });
+
   return (
     <NavContext.Provider value={state}>
-      <HStack justifyContent="space-around" padding="2.5" position={"fixed"} width="100%">
-        <HStack>
-          <IconButton as={FaEnvelope} size="sm" />
-          <Text>raghavananth02@gmail.com</Text>
+      <HStack
+        justifyContent="space-around"
+        padding="2.5"
+        position={"fixed"}
+        width="100%"
+      >
+        <HStack gap="8">
+          <IconButton
+            cursor="pointer"
+            as={FaEnvelope}
+            size="sm"
+            onClick={() => {
+              navigator.clipboard.writeText("raghavananth02@gmail.com");
+              toast({
+                title: "Email copied",
+                status: "success",
+                duration: 4000,
+                position: "top",
+                isClosable: true,
+              });
+            }}
+          />
           <ColorMode />
         </HStack>
         <UnorderedList
