@@ -10,9 +10,8 @@ import {
 } from "@chakra-ui/react";
 import photo from "./assets/img/photo.jpg";
 import { FaLinkedin } from "react-icons/fa";
+import {BiMessageRounded} from "react-icons/bi"
 import { motion, useScroll } from "framer-motion";
-import WorkCard from "./components/WorkCard";
-import { work as experience } from "./util/exp";
 import { useEffect, useRef } from "react";
 
 function Profile() {
@@ -64,6 +63,17 @@ function Profile() {
             leftIcon={<Icon as={FaLinkedin} />}
           >
             Let's Connect!
+          </Button>
+          <Button
+            onClick={() =>
+              window.open(
+                "https://www.linkedin.com/in/ananth-raghav-2151a9200/",
+                "_blank"
+              )
+            }
+            leftIcon={<Icon as={BiMessageRounded} />}
+          >
+            Contact Me
           </Button>
         </Center>
       </Box>
