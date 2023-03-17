@@ -43,9 +43,8 @@ export default function Projects() {
         }}
       />
       {sign && (
-        <Box position={"fixed"} style={{ right: "5px", bottom: "20px" }}>
-          <AnimateName />
-        </Box>
+        
+          <AnimateName sign={sign}/>
       )}
     </Box>
   );

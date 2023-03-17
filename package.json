@@ -6,7 +6,7 @@
   "homepage": "https://myusername.github.io/my-app",
   "scripts": {
     "dev": "vite --host --port 3000",
-    "build": "vite build --outDir build",
+    "build": "vite build --outDir build && cp CNAME build",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
