@@ -1,9 +1,9 @@
-import { Image, Center, Flex, Text, Box, Link,  } from "@chakra-ui/react";
+import { Image, Center, Flex, Text, Box, Link } from "@chakra-ui/react";
 import { useState } from "react";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Project({ name, photo, description, url }) {
-    const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState(false);
   const flexVariants = {
     click: {
       gap: "1rem",
@@ -56,7 +56,7 @@ export default function Project({ name, photo, description, url }) {
     },
     click: {
       all: "unset",
-      cursor:"pointer",
+      cursor: "pointer",
       fontSize: "48px",
     },
   };
@@ -92,7 +92,7 @@ export default function Project({ name, photo, description, url }) {
           </Box>
           <Box>
             <Link
-            as={motion.a}
+              as={motion.a}
               href={url}
               target="_blank"
               variants={h2Variants}

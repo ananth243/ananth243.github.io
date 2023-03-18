@@ -1,20 +1,32 @@
-// Photos from https://citizenofnowhe.re/lines-of-the-city
-import { motion, useMotionValueEvent, useScroll, useSpring } from "framer-motion";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useSpring,
+} from "framer-motion";
 import { Box, useColorModeValue } from "@chakra-ui/react";
 import Project from "./components/Project";
 import { projects } from "./util/exp";
 import AnimateName from "./components/AnimateName";
 import { useEffect, useState } from "react";
+import useWindowSize from "./util/useWindowSize";
+
+import "./assets/styles/projects.css";
+import MobileView from "./components/MobileView";
 
 export default function Projects() {
+  useEffect(() => {
+    document.querySelector("html").style.scrollSnapType = "y mandatory";
+  }, []);
   const footerBackground = useColorModeValue("dark.100", "light.100");
   const { scrollYProgress } = useScroll();
   const [sign, setSign] = useState(false);
-
+  const { width } = useWindowSize();
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if(latest==1) setSign(true);
+    if (latest == 1) setSign(true);
     else setSign(false);
-  })
+  });
+
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -26,8 +38,10 @@ export default function Projects() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      className="scrollbar"
     >
       {projects.map((project, index) => (
+        // width>=1750?<Project index={index} key={index} {...project} />:<MobileView index={index} key={index} {...project}/>
         <Project index={index} key={index} {...project} />
       ))}
       <Box
@@ -42,10 +56,7 @@ export default function Projects() {
           bottom: "100px",
         }}
       />
-      {sign && (
-        
-          <AnimateName sign={sign}/>
-      )}
+      {sign && <AnimateName sign={sign} />}
     </Box>
   );
 }

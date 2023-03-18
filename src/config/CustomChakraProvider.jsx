@@ -1,5 +1,5 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
-import {colors} from '../util/colors'
+import {colors} from '../config/colors'
 
 const styles = {
   global: (props) => ({

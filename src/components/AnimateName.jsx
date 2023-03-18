@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Box, useColorMode } from "@chakra-ui/react";
-import { colors } from "../util/colors";
+import { colors } from "../config/colors";
 
 function AnimateName() {
   const { colorMode } = useColorMode();
@@ -23,7 +23,7 @@ function AnimateName() {
     },
   };
   return (
-    <Box position={"fixed"} style={{ right: "20px", bottom: "20px" }}>
+    <Box position={"fixed"} style={{ right: "10px", bottom: "20px" }}>
       <motion.svg
         stroke={colorMode === "dark" ? "white" : "black"}
         width="300"
