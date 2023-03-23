@@ -1,5 +1,5 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
-import {colors} from '../config/colors'
+import { colors } from "../config/colors";
 
 const styles = {
   global: (props) => ({
@@ -11,12 +11,25 @@ const styles = {
   }),
 };
 
+const components = {
+  Modal: {
+    baseStyle: (props) => ({
+      dialog: {
+        bg: props.colorMode === "dark" ? "dark.200" : "light.200",
+      },
+    }),
+  },
+};
+
+const config = {
+  disableTransitionOnChange: false,
+};
+
 const theme = extendTheme({
   colors,
   styles,
-  config: {
-    disableTransitionOnChange: false,
-  },
+  config,
+  components
 });
 
 export default function CustomChakraProvider({ children }) {

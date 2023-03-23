@@ -17,72 +17,106 @@ import {
   Textarea,
   InputLeftElement,
   InputGroup,
+  useToast,
+  FormControl,
+  FormErrorMessage,
 } from "@chakra-ui/react";
+import { isEmail } from "validator";
+import { motion } from "framer-motion";
 import photo from "./assets/img/photo.jpg";
 import { FaLinkedin } from "react-icons/fa";
 import { BiMessageRounded } from "react-icons/bi";
-import { motion } from "framer-motion";
 import { EmailIcon } from "@chakra-ui/icons";
 
 function Profile() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [errors, setErrors] = useState({ email: false });
+  const [errors, setErrors] = useState({ email: false, message: false });
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const toast = useToast();
 
   async function formSubmit() {
     try {
-      let data = new FormData();
-      data.append("email", email);
-      data.append("message", message);
-      await fetch(import.meta.env.VITE_FORM_LINK, {
-        method: "POST",
-        body: data,
-        headers: {
-          Accept: "application/json",
-        },
-      });
-      setEmail("");
-      setMessage("");
-      onClose();
-      toast({
-        title: "Message Sent",
-        status: "success",
-        duration: 2000,
-        position: "top",
-        isClosable: true,
-      });
+      if (isEmail(email)) {
+        if (message.length === 0) setErrors({ email: false, message: true });
+        else {
+          setErrors({ email: false, message: false });
+          let data = new FormData();
+          data.append("email", email);
+          data.append("message", message);
+          await fetch(import.meta.env.VITE_FORM_LINK, {
+            method: "POST",
+            body: data,
+            headers: {
+              Accept: "application/json",
+            },
+          });
+          setEmail("");
+          setMessage("");
+          onClose();
+          toast({
+            title: "Message Sent",
+            status: "success",
+            duration: 2000,
+            position: "top",
+            isClosable: true,
+          });
+        }
+      } else if (message.length === 0)
+        setErrors({ email: true, message: true });
+      else setErrors({ email: true, message: false });
     } catch (error) {
       console.error(error);
     }
   }
   return (
     <Box>
-      <Modal isOpen={isOpen} onClose={onClose} size="3xl">
+      <Modal isOpen={isOpen} onClose={onClose} size="3xl" isCentered>
         <ModalOverlay />
         <ModalContent>
           <ModalBody padding="5">
-            <InputGroup marginTop="8">
-              <InputLeftElement pointerEvents="none" children={<EmailIcon />} />
-              <Input
-                type="email"
-                placeholder="Email Address"
+            <FormControl isInvalid={errors.email}>
+              <InputGroup marginTop="8">
+                <InputLeftElement
+                  pointerEvents="none"
+                  children={<EmailIcon />}
+                />
+                <Input
+                  type="email"
+                  placeholder="Email Address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  isInvalid={errors.email}
+                />
+              </InputGroup>
+              {errors.email && (
+                <FormErrorMessage>Email is required</FormErrorMessage>
+              )}
+            </FormControl>
+            <FormControl isInvalid={errors.message}>
+              <Textarea
+                placeholder="Send a message . . ."
+                marginTop="8"
+                value={message}
                 errorBorderColor="crimson"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                isInvalid={errors.email}
+                onChange={(e) => setMessage(e.target.value)}
+                height="sm"
               />
-            </InputGroup>
-            <Textarea
-              placeholder="Send a message . . ."
-              marginTop="8"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              height="sm"
-            />
+              {errors.message && (
+                <FormErrorMessage>Don't have anything to say?</FormErrorMessage>
+              )}
+            </FormControl>
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost" onClick={onClose}>
+            <Button
+              variant="ghost"
+              onClick={() => {
+                setEmail("");
+                setMessage("");
+                setErrors({ email: false, message: false });
+                onClose();
+              }}
+            >
               Close
             </Button>
             <Button variant="ghost" onClick={formSubmit}>
