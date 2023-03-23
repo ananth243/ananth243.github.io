@@ -20,6 +20,8 @@ jobs:
       run: npm ci
     - name: Build
       run: npm run build
+      env:
+        VITE_FORM_LINK: ${{secrets.VITE_FORM_LINK}}
     - name: Deploy
       run: |
         git config --global user.name $user_name

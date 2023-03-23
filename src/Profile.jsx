@@ -35,7 +35,7 @@ function Profile() {
       let data = new FormData();
       data.append("email", email);
       data.append("message", message);
-      let res = await fetch(import.meta.env.VITE_FORM_LINK, {
+      await fetch(import.meta.env.VITE_FORM_LINK, {
         method: "POST",
         body: data,
         headers: {
