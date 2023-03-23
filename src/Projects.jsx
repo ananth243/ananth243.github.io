@@ -41,7 +41,6 @@ export default function Projects() {
       className="scrollbar"
     >
       {projects.map((project, index) => (
-        // width>=1750?<Project index={index} key={index} {...project} />:<MobileView index={index} key={index} {...project}/>
         <Project index={index} key={index} {...project} />
       ))}
       <Box

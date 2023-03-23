@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Avatar,
   Center,
@@ -6,22 +7,90 @@ import {
   Button,
   Icon,
   Box,
-  Grid,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalBody,
+  ModalFooter,
+  Input,
+  Textarea,
+  InputLeftElement,
+  InputGroup,
 } from "@chakra-ui/react";
 import photo from "./assets/img/photo.jpg";
 import { FaLinkedin } from "react-icons/fa";
-import {BiMessageRounded} from "react-icons/bi"
-import { motion, useScroll } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { BiMessageRounded } from "react-icons/bi";
+import { motion } from "framer-motion";
+import { EmailIcon } from "@chakra-ui/icons";
 
 function Profile() {
-  const divRef = useRef();
-  const props = useScroll({ container: divRef });
-  useEffect(() => {
-    console.log(props);
-  }, [props]);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [errors, setErrors] = useState({ email: false });
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  async function formSubmit() {
+    try {
+      let data = new FormData();
+      data.append("email", email);
+      data.append("message", message);
+      let res = await fetch(import.meta.env.VITE_FORM_LINK, {
+        method: "POST",
+        body: data,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+      setEmail("");
+      setMessage("");
+      onClose();
+      toast({
+        title: "Message Sent",
+        status: "success",
+        duration: 2000,
+        position: "top",
+        isClosable: true,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
   return (
     <Box>
+      <Modal isOpen={isOpen} onClose={onClose} size="3xl">
+        <ModalOverlay />
+        <ModalContent>
+          <ModalBody padding="5">
+            <InputGroup marginTop="8">
+              <InputLeftElement pointerEvents="none" children={<EmailIcon />} />
+              <Input
+                type="email"
+                placeholder="Email Address"
+                errorBorderColor="crimson"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                isInvalid={errors.email}
+              />
+            </InputGroup>
+            <Textarea
+              placeholder="Send a message . . ."
+              marginTop="8"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              height="sm"
+            />
+          </ModalBody>
+          <ModalFooter>
+            <Button variant="ghost" onClick={onClose}>
+              Close
+            </Button>
+            <Button variant="ghost" onClick={formSubmit}>
+              Send
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
       <Box
         as={motion.div}
         animate={{ opacity: 1 }}
@@ -64,15 +133,7 @@ function Profile() {
           >
             Let's Connect!
           </Button>
-          <Button
-            onClick={() =>
-              window.open(
-                "https://www.linkedin.com/in/ananth-raghav-2151a9200/",
-                "_blank"
-              )
-            }
-            leftIcon={<Icon as={BiMessageRounded} />}
-          >
+          <Button onClick={onOpen} leftIcon={<Icon as={BiMessageRounded} />}>
             Contact Me
           </Button>
         </Center>
