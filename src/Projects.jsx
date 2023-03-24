@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import {
   motion,
   useMotionValueEvent,
@@ -8,20 +9,17 @@ import { Box, useColorModeValue } from "@chakra-ui/react";
 import Project from "./components/Project";
 import { projects } from "./util/exp";
 import AnimateName from "./components/AnimateName";
-import { useEffect, useState } from "react";
 import useWindowSize from "./util/useWindowSize";
-
 import "./assets/styles/projects.css";
-import MobileView from "./components/MobileView";
 
 export default function Projects() {
   useEffect(() => {
     document.querySelector("html").style.scrollSnapType = "y mandatory";
+    return () => (document.querySelector("html").style.scrollSnapType = "none");
   }, []);
   const footerBackground = useColorModeValue("dark.100", "light.100");
   const { scrollYProgress } = useScroll();
   const [sign, setSign] = useState(false);
-  const { width } = useWindowSize();
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     if (latest == 1) setSign(true);
     else setSign(false);
@@ -32,13 +30,13 @@ export default function Projects() {
     damping: 30,
     restDelta: 0.001,
   });
+
   return (
     <Box
       as={motion.div}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="scrollbar"
     >
       {projects.map((project, index) => (
         <Project index={index} key={index} {...project} />
