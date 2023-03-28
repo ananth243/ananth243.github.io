@@ -21,6 +21,11 @@ const components = {
   },
 };
 
+const fonts = {
+  body: "Montserrat",
+  heading:"Cormorant Garamond"
+};
+
 const config = {
   disableTransitionOnChange: false,
 };
@@ -29,7 +34,8 @@ const theme = extendTheme({
   colors,
   styles,
   config,
-  components
+  fonts,
+  components,
 });
 
 export default function CustomChakraProvider({ children }) {

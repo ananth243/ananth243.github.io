@@ -1,4 +1,12 @@
-import { Image, Center, Flex, Text, Box, Link } from "@chakra-ui/react";
+import {
+  Image,
+  Center,
+  Flex,
+  Text,
+  Box,
+  Link,
+  Heading,
+} from "@chakra-ui/react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
@@ -51,12 +59,15 @@ export default function Project({ name, photo, description, url }) {
     default: {
       margin: 0,
       position: "absolute",
-      right: "40%",
+      right: "29%",
       top: "100%",
+      fontWeight:"normal",
+      fontFamily:"Courier New",
+      cursor:"pointer"
     },
     click: {
-      all: "unset",
       cursor: "pointer",
+      all: "unset",
       fontSize: "48px",
     },
   };
@@ -91,15 +102,14 @@ export default function Project({ name, photo, description, url }) {
             />
           </Box>
           <Box>
-            <Link
-              as={motion.a}
-              href={url}
-              target="_blank"
+            <Heading
+              as={motion.h2}
+              onClick={() => window.open(url, "_blank")}
               variants={h2Variants}
               animate={clicked ? "click" : "default"}
             >
               {name}
-            </Link>
+            </Heading>
             {clicked && (
               <Text
                 as={motion.p}

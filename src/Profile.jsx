@@ -20,7 +20,9 @@ import {
   useToast,
   FormControl,
   FormErrorMessage,
+  Heading,
 } from "@chakra-ui/react";
+import Skills from "./components/Skills";
 import { isEmail } from "validator";
 import { motion } from "framer-motion";
 import photo from "./assets/img/photo.jpg";
@@ -137,13 +139,15 @@ function Profile() {
         <Center paddingTop={"20"}>
           <Stack alignItems="center">
             <Avatar name="Ananth Raghav" size="2xl" src={photo} />
-            <Text fontSize="xl">Hi I'm Ananth 👋</Text>
-            <Text fontSize="4xl" textAlign="center">
+            <Heading fontSize="4xl" fontWeight="normal" marginTop="6">
+              Hi I'm Ananth 👋
+            </Heading>
+            <Heading fontSize="3xl" fontWeight="normal" textAlign="center">
               Developing Software
               <br />
               Products, Brands and <br />
               User Experience.
-            </Text>
+            </Heading>
           </Stack>
         </Center>
         <Center marginTop="1rem">
@@ -151,7 +155,7 @@ function Profile() {
             A software and budding backend developer.
             <br />I specialize in backend development including server side
             <br />
-            infrastructure and user experience.
+            infrastructure and scalability.
           </Text>
         </Center>
 
@@ -171,6 +175,7 @@ function Profile() {
             Contact Me
           </Button>
         </Center>
+        <Skills />
       </Box>
     </Box>
   );
