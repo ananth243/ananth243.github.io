@@ -21,6 +21,16 @@ import {
   FormControl,
   FormErrorMessage,
   Heading,
+  Card,
+  Image,
+  CardBody,
+  CardFooter,
+  Link,
+  Stat,
+  StatHelpText,
+  StatLabel,
+  CardHeader,
+  useColorMode,
 } from "@chakra-ui/react";
 import Skills from "./components/Skills";
 import { isEmail } from "validator";
@@ -29,6 +39,7 @@ import photo from "./assets/img/photo.jpg";
 import { FaLinkedin } from "react-icons/fa";
 import { BiMessageRounded } from "react-icons/bi";
 import { EmailIcon } from "@chakra-ui/icons";
+import a2z from "./assets/img/a2z.png";
 
 function Profile() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -36,6 +47,7 @@ function Profile() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const toast = useToast();
+  const { colorMode } = useColorMode();
 
   async function formSubmit() {
     try {
@@ -176,6 +188,56 @@ function Profile() {
           </Button>
         </Center>
         <Skills />
+        <Center
+          marginTop="4rem"
+          flexDirection="column"
+          gap="2rem"
+          paddingBottom="3rem"
+        >
+          <Text fontSize="4xl">Work Experience</Text>
+          <Card
+            background={colorMode === "light" ? "light.100" : "dark.200"}
+            direction={{ base: "column", sm: "row" }}
+            overflow="hidden"
+            variant="outline"
+            maxWidth={"60%"}
+            border={"rounded"}
+          >
+            <Image
+              objectFit="cover"
+              maxW={{ base: "100%", sm: "200px" }}
+              src={a2z}
+              alt="Amazon Logo"
+            />
+            <Stack>
+              <CardHeader paddingBottom="0">
+                <Stat>
+                  <StatLabel fontSize={"md"}>
+                    <Link
+                      href="https://www.aboutamazon.com/about-us"
+                      target="_blank"
+                    >
+                      Amazon.com
+                    </Link>
+                  </StatLabel>
+                  <StatHelpText>Software Dev Engineer Intern</StatHelpText>
+                  <StatHelpText>July 2023 - Dec 2023</StatHelpText>
+                </Stat>
+              </CardHeader>
+              <CardBody>
+                <Text>
+                  Worked under the larger team of Amazon Payments where
+                  I leveraged AWS into development and learnt a thing or two
+                  about card based payments on a much higher level. Absolutely
+                  loved the environment and work culture in the team and learnt
+                  a lot about Amazon leadership principles. The internship
+                  brought me closer to AWS services such as Lambda,
+                  Cloudformation and many more.
+                </Text>
+              </CardBody>
+            </Stack>
+          </Card>
+        </Center>
       </Box>
     </Box>
   );
