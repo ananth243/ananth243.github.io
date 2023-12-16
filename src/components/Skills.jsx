@@ -1,5 +1,7 @@
 import {
+  Box,
   Center,
+  Flex,
   Tag,
   TagLabel,
   TagLeftIcon,
@@ -53,7 +55,7 @@ function Skills() {
       tagLabel: "SQL",
     },
     {
-      backgroundColor: "advanced",
+      backgroundColor: "intermediate",
       tagLeftIcon: {
         boxSize: "2em",
         as: DiDocker,
