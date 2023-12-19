@@ -8,8 +8,10 @@ import {
   Tooltip,
 } from "@chakra-ui/react";
 import React from "react";
-import { SiTypescript, SiPython, SiAzuredevops } from "react-icons/si";
-import { DiGit, DiRust, DiPostgresql, DiDocker } from "react-icons/di";
+import { SiTypescript } from "react-icons/si";
+import { DiGit, DiRust, DiDocker } from "react-icons/di";
+import { BiInjection } from "react-icons/bi";
+import { FaAws, FaDatabase } from "react-icons/fa";
 
 function sort(colors) {}
 function Skills() {
@@ -21,14 +23,6 @@ function Skills() {
         as: SiTypescript,
       },
       tagLabel: "Typescript",
-    },
-    {
-      backgroundColor: "intermediate",
-      tagLeftIcon: {
-        boxSize: "1em",
-        as: SiPython,
-      },
-      tagLabel: "Python",
     },
     {
       backgroundColor: "advanced",
@@ -49,10 +43,10 @@ function Skills() {
     {
       backgroundColor: "intermediate",
       tagLeftIcon: {
-        boxSize: "2em",
-        as: DiPostgresql,
+        boxSize: "1em",
+        as: FaDatabase,
       },
-      tagLabel: "SQL",
+      tagLabel: "SQL/NoSQL",
     },
     {
       backgroundColor: "intermediate",
@@ -66,9 +60,17 @@ function Skills() {
       backgroundColor: "intermediate",
       tagLeftIcon: {
         boxSize: "1em",
-        as: SiAzuredevops,
+        as: FaAws,
       },
-      tagLabel: "Devops",
+      tagLabel: "AWS",
+    },
+    {
+      backgroundColor: "advanced",
+      tagLeftIcon: {
+        boxSize: "1em",
+        as: BiInjection,
+      },
+      tagLabel: "Java/Kotlin",
     },
   ];
 
@@ -88,7 +90,7 @@ function Skills() {
   return (
     <Center gap="6" flexWrap={"wrap"} marginTop="2em">
       {skills.map(({ backgroundColor, tagLeftIcon, tagLabel }, id) => (
-        <Tooltip label={backgroundColor}>
+        <Tooltip label={backgroundColor} key={id}>
           <Tag
             key={id}
             size="lg"
