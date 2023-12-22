@@ -9,7 +9,6 @@ import { Box, useColorModeValue } from "@chakra-ui/react";
 import Project from "./components/Project";
 import { projects } from "./util/exp";
 import AnimateName from "./components/AnimateName";
-import useWindowSize from "./util/useWindowSize";
 import "./assets/styles/projects.css";
 
 export default function Projects() {

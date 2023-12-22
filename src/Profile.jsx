@@ -21,6 +21,7 @@ import {
   FormControl,
   FormErrorMessage,
   Heading,
+  UnorderedList,
 } from "@chakra-ui/react";
 import Skills from "./components/Skills";
 import { isEmail } from "validator";
@@ -29,6 +30,8 @@ import photo from "./assets/img/photo.jpg";
 import { FaLinkedin } from "react-icons/fa";
 import { BiMessageRounded } from "react-icons/bi";
 import { EmailIcon } from "@chakra-ui/icons";
+import { work } from "./util/exp";
+import WorkCard from "./components/WorkCard";
 
 function Profile() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -176,6 +179,32 @@ function Profile() {
           </Button>
         </Center>
         <Skills />
+        <Text marginTop="2rem" textAlign="center" fontSize="3xl">
+          Experience
+        </Text>
+        <Center marginTop="2rem">
+          <UnorderedList
+            display="grid"
+            gridTemplateColumns="1fr 0.25rem 1fr"
+            gridAutoColumns="max-content"
+            columnGap="2rem"
+            listStyle="none"
+            width="min(60rem, 90%)"
+            marginInline="auto"
+            marginBottom="2rem"
+            _before={{
+              content: `""`,
+              gridColumn: "2",
+              gridRow: "1 / span 20",
+              background: "rgb(225, 225, 225)",
+              borderRadius: "0.125rem",
+            }}
+          >
+            {work.map((exp, index) => (
+              <WorkCard {...exp} index={index} />
+            ))}
+          </UnorderedList>
+        </Center>
       </Box>
     </Box>
   );
