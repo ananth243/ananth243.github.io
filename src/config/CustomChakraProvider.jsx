@@ -28,6 +28,7 @@ const fonts = {
 
 const config = {
   disableTransitionOnChange: false,
+  initialColorMode: 'dark'
 };
 
 const theme = extendTheme({

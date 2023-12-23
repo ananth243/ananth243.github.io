@@ -1,10 +1,24 @@
-import { Avatar, Box, HStack, ListItem, Text } from "@chakra-ui/react";
+import {
+  Box,
+  HStack,
+  Link,
+  ListItem,
+  Text,
+  UnorderedList,
+} from "@chakra-ui/react";
 import { format } from "date-fns";
 import React from "react";
-import { motion } from "framer-motion";
-import { useColorModeValue } from "@chakra-ui/react";
 
-function WorkCard({ company, role, description, index }) {
+function WorkCard({
+  company,
+  role,
+  description,
+  index,
+  startDate,
+  endDate,
+  color,
+  url,
+}) {
   return (
     <ListItem
       gridColumn={index % 2 == 0 ? "1" : "3"}
@@ -12,22 +26,38 @@ function WorkCard({ company, role, description, index }) {
       gridRow={index == 1 ? "2/4" : "span 2"}
       display="grid"
       gridTemplateRows="min-content min-content min-content"
-      style={{ "--accent-color": "#4CADAD" }}
       _notLast={{ marginBottom: "2rem" }}
     >
-      <Title index={index}>{company}</Title>
-      <Role>{role}</Role>
-      <Description>{description}</Description>
+      <Title index={index} bg="teal" color={color}>
+        <Link href={url} target="blank">
+          {company}
+        </Link>
+      </Title>
+      <Role color={color} cardBg="purple.600">
+        <HStack justifyContent="space-between">
+          <Text fontStyle="oblique">{role}</Text>
+          <Text fontStyle="italic">
+            {format(startDate, "MMM yyyy")} - {format(endDate, "MMM yyyy")}
+          </Text>
+        </HStack>
+      </Role>
+      <Description color={color} cardBg="purple.600">
+        <UnorderedList>
+          {description.map((point) => (
+            <ListItem>{point}</ListItem>
+          ))}
+        </UnorderedList>
+      </Description>
     </ListItem>
   );
 }
 
-function Title({ children, index }) {
+function Title({ children, index, bg, color }) {
   let before = {
     content: `""`,
     width: "1.5rem",
     aspectRatio: "1",
-    background: "#4CADAD",
+    background: "teal",
     backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.2) 100%, transparent)",
     position: "absolute",
     top: "100%",
@@ -59,13 +89,13 @@ function Title({ children, index }) {
       height="3rem"
       marginInline="-1.5rem"
       textAlign="center"
-      backgroundColor="#4CADAD"
-      color="white"
+      backgroundColor={bg}
       fontSize="1.25rem"
       fontWeight="700"
       display="grid"
       placeContent="center"
       position="relative"
+      color={color}
       borderRadius={index % 2 != 0 ? "1.5rem 0 0 1.5rem" : "0 1.5rem 1.5rem 0"}
       _before={before}
       _after={after}
@@ -75,16 +105,17 @@ function Title({ children, index }) {
   );
 }
 
-function Role({ children }) {
+function Role({ children, color, cardBg }) {
   return (
     <Box
       overflow="hidden"
       paddingBlockStart="1.5rem"
       paddingBlockEnd="1rem"
       fontWeight="500"
-      backgroundColor="rgba(245, 245, 245)"
+      backgroundColor={cardBg}
       position="relative"
       paddingInline="1.5rem"
+      color={color}
       _before={{
         content: `""`,
         position: "absolute",
@@ -103,14 +134,15 @@ function Role({ children }) {
   );
 }
 
-function Description({ children }) {
+function Description({ children, color, cardBg }) {
   return (
     <Box
-      backgroundColor="rgba(245, 245, 245)"
+      backgroundColor={cardBg}
       position="relative"
       paddingInline="1.5rem"
       paddingBlockEnd="1.5rem"
       fontWeight="300"
+      color={color}
       _before={{
         content: `""`,
         position: "absolute",

@@ -14,6 +14,7 @@ import Resume from "../assets/Dev.pdf";
 const defaultState = {
   home: false,
   projects: false,
+  experience: false,
 };
 
 const NavContext = createContext();
@@ -30,6 +31,8 @@ function Navbar({ children }) {
         return { ...defaultState, home: true };
       case "projects":
         return { ...defaultState, projects: true };
+      case "experience":
+        return { ...defaultState, experience: true };
       default:
         return defaultState;
     }
@@ -88,6 +91,15 @@ function Navbar({ children }) {
             whileHover={{ scale: 1.2 }}
           >
             Projects
+          </ListItem>
+          <ListItem
+            cursor={"pointer"}
+            opacity={state.experience ? "1" : "0.7"}
+            onClick={() => dispatch("experience")}
+            as={motion.li}
+            whileHover={{ scale: 1.2 }}
+          >
+            Experience
           </ListItem>
           <ListItem
             cursor={"pointer"}
