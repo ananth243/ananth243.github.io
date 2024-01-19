@@ -94,15 +94,6 @@ function Navbar({ children }) {
           </ListItem>
           <ListItem
             cursor={"pointer"}
-            opacity={state.experience ? "1" : "0.7"}
-            onClick={() => dispatch("experience")}
-            as={motion.li}
-            whileHover={{ scale: 1.2 }}
-          >
-            Experience
-          </ListItem>
-          <ListItem
-            cursor={"pointer"}
             opacity="0.7"
             as={motion.li}
             onClick={() => window.open(Resume, "Download")}
