@@ -9,7 +9,6 @@ import {
 import { ColorMode } from "./ColorMode";
 import { FaEnvelope } from "react-icons/fa";
 import { motion } from "framer-motion";
-import Resume from "../assets/Dev.pdf";
 
 const defaultState = {
   home: false,
@@ -96,10 +95,11 @@ function Navbar({ children }) {
             cursor={"pointer"}
             opacity="0.7"
             as={motion.li}
-            onClick={() => window.open(Resume, "Download")}
-            whileHover={{ opacity: 0.9, scale: 1.2 }}
+            whileHover={{ scale: 1.2 }}
           >
-            Resume
+            <a href="/Resume.pdf" download={true}>
+              Resume
+            </a>
           </ListItem>
         </UnorderedList>
       </HStack>
