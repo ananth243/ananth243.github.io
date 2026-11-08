@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./terminal.css";
+import "./assets/styles/terminal.css";
 
 const email = "raghavananth02@gmail.com";
 const linkedin = "https://www.linkedin.com/in/ananth-raghav-2151a9200/";
